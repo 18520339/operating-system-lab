@@ -38,16 +38,16 @@ typedef struct _PRA
 
 #### 8 methods:
 
--   `IsPageExisted`:
--   `IsFrameFull`:
--   `CopyLastFrames`:
--   `UpdatePageFrame`:
--   `StartPaging`: .
--   `DisplayPage`:
--   `DisplayTable`:
--   `DisplayPageFaults`:
+-   `IsPageExisted`
+-   `IsFrameFull`
+-   `CopyLastFrames`
+-   `UpdatePageFrame`
+-   `StartPaging`
+-   `DisplayPage`
+-   `DisplayTable`
+-   `DisplayPageFaults`
 
-#### 2 functions are equivalent to _constructor_ and _destructor_ defined in `PRA.c`
+#### 2 functions are equivalent to *constructor* and *destructor* defined in the [PRA.c](https://github.com/18520339/operating-system-lab/blob/master/Pace%20Replacement/PRA.c) file
 
 -   `new_PRA` (_constructor_)
 -   `delete_PRA` (_destructor_)
