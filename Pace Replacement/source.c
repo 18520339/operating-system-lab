@@ -8,7 +8,7 @@ int main()
 	char str_pages[20];
 	PRA *pra;
 
-	printf("--- Page Replacement algorithm ---\n");
+	printf("\n--- Page Replacement Algorithm ---\n");
 	printf("1. Default referenced sequence\n");
 	printf("2. Manual input sequence\n");
 	printf("Enter your choice: ");
@@ -24,39 +24,35 @@ int main()
 		scanf("%s", str_pages);
 		break;
 	default:
-		break;
+		return 1;
 	}
 
-	system("cls");
-	printf("--- Page Replacement algorithm ---\n");
-	printf("Input page frames: ");
-	scanf("%d", &num_frames);
-
+	printf("\nSelect algorithm:\n");
 	printf("1. FIFO algorithm\n");
 	printf("2. OPT algorithm\n");
 	printf("3. LRU algorithm\n");
+
 	printf("Enter your choice: ");
 	scanf("%d", &choice);
-
-	system("cls");
-	printf("--- Page Replacement algorithm ---\n");
+	printf("Input page frames: ");
+	scanf("%d", &num_frames);
 
 	switch (choice)
 	{
 	case 1:
-		printf("FIFO algorithm:");
+		printf("\nFIFO algorithm:");
 		pra = new_FIFO(num_frames, str_pages);
 		break;
 	case 2:
-		printf("OPT algorithm:");
+		printf("\nOPT algorithm:");
 		pra = new_OPT(num_frames, str_pages);
 		break;
 	case 3:
-		printf("LRU algorithm:");
+		printf("\nLRU algorithm:");
 		pra = new_LRU(num_frames, str_pages);
 		break;
 	default:
-		break;
+		return 1;
 	}
 
 	pra->StartPaging(pra);

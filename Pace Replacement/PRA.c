@@ -74,8 +74,10 @@ void DisplayPageTable(PRA *const self)
         for (int j = 0; j < self->total_pages; ++j)
         {
             int value = self->page_table[i * self->total_pages + j];
-            if (value == -1) printf("   |");
-            else printf(" %d |", value);
+            if (value == -1)
+                printf("   |");
+            else
+                printf(" %d |", value);
         }
     }
 }
@@ -94,13 +96,14 @@ void DisplayPageFaults(PRA *const self)
     for (int i = 0; i < self->total_pages; ++i)
         printf("----");
 
-    printf("\nNumber of Page Faults: %d", self->total_page_faults);
+    printf("\n=> Number of Page Faults: %d\n", self->total_page_faults);
 }
 
 void delete_PRA(PRA *self)
 {
     free(self->list_pages);
     free(self->page_table);
+    free(self->page_faults);
     self = NULL;
 }
 
@@ -108,7 +111,8 @@ PRA *new_PRA(int total_frames, char str_processes[20])
 {
     PRA *pra = NULL;
     pra = (PRA *)malloc(sizeof(PRA));
-    if (pra == NULL) return NULL;
+    if (pra == NULL)
+        return NULL;
 
     pra->total_frames = total_frames;
     pra->total_pages = strlen(str_processes);
@@ -116,13 +120,16 @@ PRA *new_PRA(int total_frames, char str_processes[20])
     pra->frame_update = 0;
 
     pra->list_pages = (int *)malloc(pra->total_pages * sizeof(int));
-    if (pra->list_pages == NULL) return NULL;
+    if (pra->list_pages == NULL)
+        return NULL;
 
     pra->page_table = (int *)malloc(pra->total_frames * pra->total_pages * sizeof(int));
-    if (pra->page_table == NULL) return NULL;
+    if (pra->page_table == NULL)
+        return NULL;
 
     pra->page_faults = (char *)malloc(pra->total_pages * sizeof(char));
-    if (pra->page_faults == NULL) return NULL;
+    if (pra->page_faults == NULL)
+        return NULL;
 
     for (int i = 0; i < pra->total_pages; ++i)
     {
