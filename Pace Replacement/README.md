@@ -1,7 +1,7 @@
 # Page Replacement Algorithms
 ![demo](https://github.com/18520339/os-practice/blob/master/Pace%20Replacement/demo.png)
 
-> The algorithms is written according to the structure of OOP using C language (class replaced by struct)
+The algorithms is written according to the structure of OOP using C language (class replaced by struct)
 
 ### 7 properties:
 
