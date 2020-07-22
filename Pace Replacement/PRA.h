@@ -1,6 +1,6 @@
 #include <stdbool.h>
 
-typedef struct _PRA
+typedef struct _PRA /* Page Replacement Algorithm */
 {
     int total_frames;
     int total_pages;
@@ -24,7 +24,7 @@ typedef struct _PRA
     of the frames at this position equal to the value of the previous position */
     void (*CopyLastFrames)(struct _PRA *, int);
 
-    /* receives the current position of the page being reviewed and assigns the 
+    /* Receives the current position of the page being reviewed and assigns the 
     value of the ordered frame by frame_update at this position by its value in 
     the page list. Next, proceed to mark the page error at this position while 
     increasing the total number of page errors and frame_update to 1 */
