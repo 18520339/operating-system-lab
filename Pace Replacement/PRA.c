@@ -51,19 +51,22 @@ void UpdatePageFrame(PRA *const self, int page_index)
 
 void StartPaging(PRA *const self) {}
 
-void DisplayPages(PRA *const self)
+void PrintRowBorder(int total_pages)
 {
     printf("\n--------------");
-    for (int i = 0; i < self->total_pages; ++i)
+    for (int i = 0; i < total_pages; ++i)
         printf("----");
+}
+
+void DisplayPages(PRA *const self)
+{
+    PrintRowBorder(self->total_pages);
 
     printf("\n|    Page    |");
     for (int i = 0; i < self->total_pages; ++i)
         printf(" %d |", self->list_pages[i]);
 
-    printf("\n--------------");
-    for (int i = 0; i < self->total_pages; ++i)
-        printf("----");
+    PrintRowBorder(self->total_pages);
 }
 
 void DisplayPageTable(PRA *const self)
@@ -74,28 +77,21 @@ void DisplayPageTable(PRA *const self)
         for (int j = 0; j < self->total_pages; ++j)
         {
             int value = self->page_table[i * self->total_pages + j];
-            if (value == -1)
-                printf("   |");
-            else
-                printf(" %d |", value);
+            if (value == -1) printf("   |");
+            else printf(" %d |", value);
         }
     }
 }
 
 void DisplayPageFaults(PRA *const self)
 {
-    printf("\n--------------");
-    for (int i = 0; i < self->total_pages; ++i)
-        printf("----");
+    PrintRowBorder(self->total_pages);
 
     printf("\n| Page Fault |");
     for (int i = 0; i < self->total_pages; ++i)
         printf(" %c |", self->page_faults[i]);
 
-    printf("\n--------------");
-    for (int i = 0; i < self->total_pages; ++i)
-        printf("----");
-
+    PrintRowBorder(self->total_pages);
     printf("\n=> Number of Page Faults: %d\n", self->total_page_faults);
 }
 
