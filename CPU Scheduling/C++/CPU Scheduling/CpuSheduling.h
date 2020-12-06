@@ -41,10 +41,10 @@ public:
 			int burst_time = process[j].GetBurstTime();
 			smallest_burst_time = process[smallest].GetBurstTime();
 
-			if (arrival_time <= time &&
-				burst_time > 0 &&
-				burst_time < smallest_burst_time)
-				smallest = j;
+			if (arrival_time <= time && 
+			    burst_time > 0 &&
+			    burst_time < smallest_burst_time)	
+			    smallest = j;
 		}
 		smallest_burst_time = process[smallest].GetBurstTime();
 	}
